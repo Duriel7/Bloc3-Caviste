@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Bloc3_Caviste.Data
 {
@@ -11,7 +7,9 @@ namespace Bloc3_Caviste.Data
     {
         //Private attributes for DB connection
         private static readonly string dbName = "RougePassion.db";
-        private readonly string connectionString = $"Data Source={dbName}";
+        //Path ensures DB files is searched for in the same folder the executable file is located
+        private static readonly string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Data\", dbName);
+        private readonly string connectionString = $"Data Source={Path.GetFullPath(dbPath)}";
 
         //Configure function
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
