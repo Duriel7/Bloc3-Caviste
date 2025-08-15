@@ -21,30 +21,38 @@ namespace Bloc3_Caviste.Data
         //Configure data model when database is initialized
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Mode for wine data
-            modelBuilder.Entity<WineData>().HasKey(w => w.Id);
+            //Model for wine data
+            modelBuilder.Entity<WineData>().HasKey(w => w.Id_Wine);
             modelBuilder.Entity<WineData>().Property(w => w.Name).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.BottlingYear).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.StocksAvailable).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.StocksArriving);
             modelBuilder.Entity<WineData>().Property(w => w.DateOrder);
             modelBuilder.Entity<WineData>().Property(w => w.DateRestock);
-            modelBuilder.Entity<WineData>().Property(w => w.Supplier).IsRequired();
+            modelBuilder.Entity<WineData>().HasOne(w => w.Supplier).WithMany(s => s.WineData).HasForeignKey(w => w.Id_Supplier).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.PricePublic).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.PriceSupplier).IsRequired();
 
-            //Mode for client data
-            modelBuilder.Entity<ClientData>().HasKey(c => c.Id);
+            //Model for client data
+            modelBuilder.Entity<ClientData>().HasKey(c => c.Id_Client);
             modelBuilder.Entity<ClientData>().Property(c => c.FirstName).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.SurName).HasMaxLength(50).IsRequired();
-            modelBuilder.Entity<ClientData>().Property(c => c.Email).HasConversion<string>().HasMaxLength(25).IsRequired();
-            modelBuilder.Entity<ClientData>().Property(c => c.Telephone).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<ClientData>().Property(c => c.Email).HasConversion<string>().HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<ClientData>().Property(c => c.Telephone).HasConversion<string>().HasMaxLength(10).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.Address).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.PostalCode).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.City).IsRequired();
 
-            //Mode for supplier data
-            modelBuilder.Entity<SupplierData>().HasKey(s => s.Id);
+            //Model for supplier data
+            modelBuilder.Entity<SupplierData>().HasKey(s => s.Id_Supplier);
+            modelBuilder.Entity<SupplierData>().Property(s => s.Name).IsRequired();
+            modelBuilder.Entity<SupplierData>().Property(s => s.Email).HasConversion<string>().HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<SupplierData>().Property(s => s.Telephone).HasConversion<string>().HasMaxLength(10).IsRequired();
+            modelBuilder.Entity<SupplierData>().Property(s => s.City).IsRequired();
+
+            //Model for receipt data
+
+            //Model for receipt line data
 
             //Builds database model
             base.OnModelCreating(modelBuilder);
