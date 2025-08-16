@@ -42,8 +42,7 @@
               "RelativeToolTip": "Functions\\CRUDFunctions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:05:01.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T13:05:01.604Z"
             },
             {
               "$type": "Document",
@@ -53,7 +52,7 @@
               "RelativeDocumentMoniker": "Data\\DBHandle.cs",
               "ToolTip": "C:\\Users\\utilisateur\\Documents\\GitHub\\Bloc3-Caviste\\Data\\DBHandle.cs",
               "RelativeToolTip": "Data\\DBHandle.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAiwB0AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBAAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T13:00:43.849Z",
               "EditorCaption": ""
@@ -68,12 +67,7 @@
               "RelativeToolTip": "Data\\DBConnect.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T12:59:24.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-08-12T12:59:24.069Z"
             },
             {
               "$type": "Bookmark",
@@ -88,8 +82,7 @@
               "ToolTip": "C:\\Users\\utilisateur\\Documents\\GitHub\\Bloc3-Caviste\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-25T07:13:47.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T07:13:47.291Z"
             },
             {
               "$type": "Document",
@@ -101,8 +94,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T07:13:42.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T07:13:42.764Z"
             }
           ]
         },

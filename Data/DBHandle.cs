@@ -17,6 +17,8 @@ namespace Bloc3_Caviste.Data
         public DbSet<WineData> WineDataSets { get; set; }
         public DbSet<ClientData> ClientDataSets { get; set; }
         public DbSet<SupplierData> SupplierDataSets { get; set; }
+        public DbSet<ReceiptData> ReceiptDataSets { get; set; }
+        public DbSet<ReceiptLineData> ReceiptLineDataSets { get; set; }
 
         //Configure data model when database is initialized
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,6 +53,7 @@ namespace Bloc3_Caviste.Data
             modelBuilder.Entity<SupplierData>().Property(s => s.City).IsRequired();
 
             //Model for receipt data
+            modelBuilder.Entity<ReceiptData>().HasKey(r => r.Id_Receipt);
 
             //Model for receipt line data
 
