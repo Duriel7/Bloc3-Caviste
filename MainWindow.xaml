@@ -1,40 +1,57 @@
 ﻿<Window x:Class="Bloc3_Caviste.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bloc3_Caviste"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
-        Title="Rouge Passion - Caviste" Height="450" Width="800"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        xmlns:local="clr-namespace:Bloc3_Caviste"
+        Title="Rouge Passion - Caviste" Height="700" Width="1200">
     <Grid>
-        <materialDesign:Card Padding="32" Margin="32">
-            <StackPanel>
-                <TextBlock Text="Rouge Passion" 
-                           HorizontalAlignment="Center" 
-                           Style="{DynamicResource MaterialDesignHeadline3TextBlock}"
-                           FontFamily="Edwardian Script ITC"
-                           FontSize="48" 
-                           Margin="0,0,0,16"/>
-                
-                <TextBlock Text="Une application qui vous enivrera" 
-                           HorizontalAlignment="Center" 
-                           Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"
-                           Margin="0,0,0,32"/>
-                
-                <Button Style="{StaticResource MaterialDesignRaisedButton}"
-                        Content="Découvrir nos vins"
-                        HorizontalAlignment="Center"
-                        Width="200"
-                        Height="40"/>
-            </StackPanel>
-        </materialDesign:Card>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation -->
+        <Grid Grid.Column="0" Background="{DynamicResource FondPrincipal}" Width="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="1"
+                     ItemsSource="{Binding MainMenuItems}"
+                     DisplayMemberPath="Title"
+                     SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+                     Margin="0,8"
+                     BorderThickness="0"
+                     Background="Transparent">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesign3.NavigationRailListBoxItem}">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="materialDesign:NavigationRailAssist.IconSize" Value="28" />
+                        <Setter Property="materialDesign:NavigationRailAssist.IsTextVisible" Value="True" />
+                        <Setter Property="materialDesign:NavigationRailAssist.SelectedIcon" Value="{Binding SelectedIcon}" />
+                        <Setter Property="materialDesign:NavigationRailAssist.UnselectedIcon" Value="{Binding UnselectedIcon}" />
+                        <Setter Property="Background" Value="{DynamicResource Accent}" />
+                        <Setter Property="FontFamily" Value="{DynamicResource Inter}"/>
+                        <Setter Property="FontWeight" Value="DemiBold"/>
+                        <Setter Property="FontSize" Value="10"/>
+                        <Setter Property="Foreground" Value="{DynamicResource Primaire}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="{DynamicResource BoutonPress}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </Grid>
+
+        <!-- Zone dynamique des pages: utiliser un Frame pour héberger les Page afin d'éviter l'exception -->
+        <Frame Grid.Column="1"
+               Content="{Binding CurrentPage}"
+               NavigationUIVisibility="Hidden"
+               Background="{DynamicResource FondPrincipal}" />
     </Grid>
 </Window>

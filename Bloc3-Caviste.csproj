@@ -10,7 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
   </ItemGroup>
 
+  <!--Ajout des Fonts-->
+  <ItemGroup>
+    <Resource Include="Ressources\Font\Limelight.ttf" />
+    <Resource Include="Ressources\Font\Inter.ttf" />
+  </ItemGroup>
 </Project>
