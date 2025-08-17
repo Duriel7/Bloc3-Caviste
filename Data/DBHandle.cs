@@ -37,9 +37,9 @@ namespace Bloc3_Caviste.Data
 
             //Model for client data
             modelBuilder.Entity<ClientData>().HasKey(c => c.Id_Client);
-            modelBuilder.Entity<ClientData>().Property(c => c.FirstName).HasMaxLength(50).IsRequired();
-            modelBuilder.Entity<ClientData>().Property(c => c.SurName).HasMaxLength(50).IsRequired();
-            modelBuilder.Entity<ClientData>().Property(c => c.Email).HasConversion<string>().HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<ClientData>().Property(c => c.Firstname).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<ClientData>().Property(c => c.Surname).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<ClientData>().Property(c => c.Email).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.Telephone).HasConversion<string>().HasMaxLength(10).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.Address).IsRequired();
             modelBuilder.Entity<ClientData>().Property(c => c.PostalCode).IsRequired();
@@ -48,7 +48,7 @@ namespace Bloc3_Caviste.Data
             //Model for supplier data
             modelBuilder.Entity<SupplierData>().HasKey(s => s.Id_Supplier);
             modelBuilder.Entity<SupplierData>().Property(s => s.Name).IsRequired();
-            modelBuilder.Entity<SupplierData>().Property(s => s.Email).HasConversion<string>().HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<SupplierData>().Property(s => s.Email).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<SupplierData>().Property(s => s.Telephone).HasConversion<string>().HasMaxLength(10).IsRequired();
             modelBuilder.Entity<SupplierData>().Property(s => s.City).IsRequired();
 
@@ -71,7 +71,7 @@ namespace Bloc3_Caviste.Data
             base.OnModelCreating(modelBuilder);
         }
 
-                            //All the get all functions are below
+                            //All the get all functions are below => needed to show all items into the display grid
 
         //Get all stored wine stocks
         public ObservableCollection<WineData> GetAllWineStocks()
@@ -101,22 +101,99 @@ namespace Bloc3_Caviste.Data
             var receipts = context.ReceiptDataSets.OrderBy(r => r.Id_Receipt).ToList();
             return new ObservableCollection<ReceiptData>(receipts);
         }
+        }
 
-                            //All the save all functions are below
+                            //All the get all functions are below => needed to show all found items in the tables into the search grid
+        
+        //Get a wine by name and year
+        public WineData GetWineByNameAndYear(string name, int year)
+        {
+            using (var context = new DBHandle())
+            {
+                var wine = context.WineDataSets.FirstOrDefault(w.Name == name && w.BottlingYear == year);
+                return wine;
+            }
+        }
+        //Get a client by fullname and email => still needs thoughts
+        public ClientData GetClientByNameAndEmail(string firstname, string surname, string email)
+        {
+            using (var context = new DBHandle())
+            {
+                var client = context.ClientDataSets.FirstOrDefault(c.Firstname == firstname && c.Surname == surname && c.Email == email);
+                return client;
+            }
+        }
+        //Get a supplier by name
+        public SupplierData GetSupplierByName(string name)
+        {
+            using (var context = new DBHandle())
+            {
+                var supplier = context.ClientDataSets.FirstOrDefault(s.Name == name);
+                return supplier;
+            }
+        }
 
-        //Save all wine to database to update the stored list
+                            //All the save all functions are below => needed for when creating data from scratch
+
+        //Save all wine to thelist
         public void SaveAllWineInStock(ObservableCollection<WineData> wineStocks)
         {
             using var context = new DBHandle();
-
+            context.SaveChanges();
+        }
+        //Save all clients to the list
+        public void SaveAllCients(ObservableCollection<ClientData> clients)
+        {
+            using var context = new DBHandle();
+            context.SaveChanges();
+        }
+        //Save all suppliers to the list
+        public void SaveAllSuppliers(ObservableCollection<SupplierData> suppliers)
+        {
+            using var context = new DBHandle();
+            context.SaveChanges();
+        }
+        //Save all recepits to the list
+        public void SaveAllReceipts(ObservableCollection<ReceiptData> receipts)
+        {
+            using var context = new DBHandle();
+            context.SaveChanges();
         }
 
-                            //All the add + save functions are below
+                            //All the add + save functions are below => needed when adding items one by one
 
         //Add and save a new wine in the list
         public void AddWineToStock(ObservableCollection<WineData> wine)
         {
-            wine.Add(new [WineStocks] { });
+            wine.Add(new [WineData] { });
         }
+        //Add and save a new client in the list
+        public void AddClientToList(ObservableCollection<ClientData> client)
+        {
+            client.Add(new [ClientData] { });
+        }
+        //Add and save a new supplier in the list
+        public void AddClientToList(ObservableCollection<SupplierData> supplier)
+        {
+            supplier.Add(new [SupplierData] { });
+        }
+        //Add and save a new receipt in the list => will be called after each successful purchase
+        public void AddReceiptToList(ObservableCollection<ReceiptData> receipt)
+        {
+            receipt.Add(new [ReceiptData] { });
+        }
+        //Add and save a new receipt line to the receipt => will be called after passing each item
+        public void AddReceiptToList(ObservableCollection<ReceiptLineData> receiptLine)
+        {
+            receiptLine.Add(new [ReceiptLineData] { });
+        }
+
+                            //All the update functions are below => needed to update individual items
+
+        //Update a wine type data
+
+        //Update a client data
+
+        //Update a supplier data
     }
 }
