@@ -3,55 +3,157 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Bloc3_Caviste"
-        Title="Rouge Passion - Caviste" Height="700" Width="1200">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        Title="Rouge Passion - Caviste"
+        Height="700"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="Transparent">
+    <WindowChrome.WindowChrome>
+        <shell:WindowChrome CaptionHeight="32"
+                             CornerRadius="16"
+                             GlassFrameThickness="0"
+                             ResizeBorderThickness="6"
+                             UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
 
-        <!-- Navigation -->
-        <Grid Grid.Column="0" Background="{DynamicResource FondPrincipal}" Width="150">
+    <Border x:Name="RootBorder"
+            Background="{DynamicResource FondPrincipal}"
+            CornerRadius="16"
+            SnapsToDevicePixels="True"
+            ClipToBounds="True">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="1"
-                     ItemsSource="{Binding MainMenuItems}"
-                     DisplayMemberPath="Title"
-                     SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-                     Margin="0,8"
-                     BorderThickness="0"
-                     Background="Transparent">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesign3.NavigationRailListBoxItem}">
-                        <Setter Property="Padding" Value="0"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="materialDesign:NavigationRailAssist.IconSize" Value="28" />
-                        <Setter Property="materialDesign:NavigationRailAssist.IsTextVisible" Value="True" />
-                        <Setter Property="materialDesign:NavigationRailAssist.SelectedIcon" Value="{Binding SelectedIcon}" />
-                        <Setter Property="materialDesign:NavigationRailAssist.UnselectedIcon" Value="{Binding UnselectedIcon}" />
-                        <Setter Property="Background" Value="{DynamicResource Accent}" />
-                        <Setter Property="FontFamily" Value="{DynamicResource Inter}"/>
-                        <Setter Property="FontWeight" Value="DemiBold"/>
-                        <Setter Property="FontSize" Value="10"/>
-                        <Setter Property="Foreground" Value="{DynamicResource Primaire}"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Foreground" Value="{DynamicResource BoutonPress}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-            </ListBox>
-        </Grid>
+            <Grid Grid.Row="0"
+                  Background="{DynamicResource FondPrincipal}"
+                  MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,4,0">
+                    <Button x:Name="BtnMin"
+                            Click="BtnMin_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Réduire"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Minimize}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"/>
+                    <Button x:Name="BtnMax"
+                            Click="BtnMax_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Agrandir / Restaurer"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Fullscreen}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"/>
+                    <Button x:Name="BtnClose"
+                            Click="BtnClose_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Fermer"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Close}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"
+                            x:FieldModifier="private">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#30FF0000"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" Value="#60FF0000"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
 
-        <!-- Zone dynamique des pages: utiliser un Frame pour héberger les Page afin d'éviter l'exception -->
-        <Frame Grid.Column="1"
-               Content="{Binding CurrentPage}"
-               NavigationUIVisibility="Hidden"
-               Background="{DynamicResource FondPrincipal}" />
-    </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0"
+                      Width="150"
+                      Background="{DynamicResource FondPrincipal}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding MainMenuItems}"
+                             DisplayMemberPath="Title"
+                             SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+                             Margin="0,8"
+                             BorderThickness="0"
+                             Background="Transparent">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem"
+                                   BasedOn="{StaticResource MaterialDesign3.NavigationRailListBoxItem}">
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="materialDesign:NavigationRailAssist.IconSize" Value="28"/>
+                                <Setter Property="materialDesign:NavigationRailAssist.IsTextVisible" Value="True"/>
+                                <Setter Property="materialDesign:NavigationRailAssist.SelectedIcon" Value="{Binding SelectedIcon}"/>
+                                <Setter Property="materialDesign:NavigationRailAssist.UnselectedIcon" Value="{Binding UnselectedIcon}"/>
+                                <Setter Property="Background" Value="{DynamicResource Accent}"/>
+                                <Setter Property="FontFamily" Value="{DynamicResource Inter}"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                                <Setter Property="FontSize" Value="10"/>
+                                <Setter Property="Foreground" Value="{DynamicResource Primaire}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Foreground" Value="{DynamicResource BoutonPress}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Grid>
+
+                <Frame Grid.Column="1"
+                       Content="{Binding CurrentPage}"
+                       NavigationUIVisibility="Hidden"
+                       Background="{DynamicResource FondPrincipal}"/>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

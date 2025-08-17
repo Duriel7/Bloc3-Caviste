@@ -2,40 +2,40 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\Caisse.xaml.cs">
+    <Compile Update="Views\CaisseW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ClientsDetail.xaml.cs">
+    <Compile Update="Views\ClientsDetailW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Clients.xaml.cs">
+    <Compile Update="Views\ClientsP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ClientsCreate.xaml.cs">
+    <Compile Update="Views\ClientsCreateW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Connexion.xaml.cs">
+    <Compile Update="Views\ConnexionW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Dashboard.xaml.cs">
+    <Compile Update="Views\DashboardP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\FournisseurCmd.xaml.cs">
+    <Compile Update="Views\FournisseurCmdP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\FournisseurCreate.xaml.cs">
+    <Compile Update="Views\FournisseurCreateW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\FournisseurDetail.xaml.cs">
+    <Compile Update="Views\FournisseurDetailW.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Fournisseurs.xaml.cs">
+    <Compile Update="Views\FournisseursP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Ventes.xaml.cs">
+    <Compile Update="Views\VentesP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Vins.xaml.cs">
+    <Compile Update="Views\VinsP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

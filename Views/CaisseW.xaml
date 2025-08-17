@@ -1,0 +1,293 @@
+﻿<Window x:Class="Bloc3_Caviste.Views.Caisse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bloc3_Caviste.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=netstandard"
+        mc:Ignorable="d"
+        Title="Caisse" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="Transparent">
+
+    <!--
+    PSEUDOCODE:
+    1. Ajouter une barre de recherche sous le bouton "Nouvelle Transaction".
+    2. Utiliser un Grid pour superposer une icône loupe à gauche et la zone de saisie.
+    3. TextBox avec Hint "Rechercher..." liée à une propriété SearchText (binding futur).
+    4. Style cohérent (hauteur 40, largeur ~300) + coins arrondis.
+    5. Prévoir un bouton pour effacer (optionnel) -> ajouté avec un PackIcon 'Close' à droite, visibilité liée au texte.
+    6. Triggers: quand TextBox vide -> bouton clear caché.
+    -->
+
+    <Border x:Name="RootBorder"
+            Background="{DynamicResource FondPrincipal}"
+            CornerRadius="16"
+            SnapsToDevicePixels="True"
+            ClipToBounds="True">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Barre titre -->
+            <Grid Grid.Row="0" Background="{DynamicResource FondPrincipal}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <TextBlock Text="Caisse" Margin="12,0,0,0" VerticalAlignment="Center" FontFamily="{DynamicResource Limelight}" FontWeight="SemiBold" Foreground="{DynamicResource Primaire}"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,4,0">
+                    <Button x:Name="BtnMin"
+                            Click="BtnMin_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Réduire"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Minimize}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"/>
+                    <Button x:Name="BtnMax"
+                            Click="BtnMax_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Agrandir / Restaurer"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Fullscreen}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"/>
+                    <Button x:Name="BtnClose"
+                            Click="BtnClose_Click"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Width="32" Height="24"
+                            ToolTip="Fermer"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            Foreground="{DynamicResource Primaire}"
+                            Content="{materialDesign:PackIcon Kind=Close}"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Cursor="Hand"
+                            x:FieldModifier="private">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#30FF0000"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" Value="#60FF0000"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Ligne 1 : Client -->
+            <Grid Grid.Row="1">
+                <StackPanel Margin="6" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0" >
+                        <Button Content="Ajouter Client" Style="{DynamicResource BoutonRougePassion}" Width="200" Height="40" Margin="0,0,8,0"/>
+                        <TextBox x:Name="SearchBarClient"
+                                 Style="{StaticResource SearchClientStyle}"
+                                 Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                 materialDesign:HintAssist.Hint="Rechercher Client"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <!-- Ligne 2 : Produits / Filtres -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                <StackPanel Grid.Column="0" Margin="6" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0" >
+                            <Button Content="Type" Style="{DynamicResource BoutonRougePassion}" Width="100" Height="40" Margin="0,0,8,0"/>
+                            <Button Content="Région" Style="{DynamicResource BoutonRougePassion}" Width="100" Height="40" Margin="0,0,8,0"/>
+                            <TextBox x:Name="SearchBarProduct"
+                                 Style="{StaticResource SearchClientStyle}"
+                                 Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                 materialDesign:HintAssist.Hint="Rechercher Produit"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Grid.Column="1" Content="Valider le panier" Style="{DynamicResource BoutonRougePassion}" HorizontalAlignment="Right" Width="200" Height="40" Margin="0,0,0,0"/>
+
+
+                </Grid>
+            </Grid>
+
+            <!-- Ligne 3 : Tableaux Produits -->
+            <Grid Grid.Row="3" Margin="6,0,6,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Produits catalogue -->
+                <Border Grid.Column="0" CornerRadius="8" Padding="6" Background="{DynamicResource FondPrincipal}" BorderBrush="{DynamicResource Primaire}" BorderThickness="1">
+                    <DockPanel>
+                        <TextBlock Text="Produits" FontWeight="SemiBold" FontSize="14" Foreground="{DynamicResource Primaire}" Margin="2,0,0,4" DockPanel.Dock="Top"/>
+                        <DataGrid x:Name="ProductsDataGrid"
+                                  ItemsSource="{Binding Products}"
+                                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  IsReadOnly="True"
+                                  HeadersVisibility="Column"
+                                  GridLinesVisibility="None"
+                                  RowHeight="32"
+                                  SelectionMode="Single"
+                                  Margin="0"
+                                  MouseDoubleClick="ProductsDataGrid_MouseDoubleClick">
+                            <DataGrid.Resources>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Ajouter au panier" Click="AddProductMenuItem_Click"
+                                              IsEnabled="{Binding PlacementTarget.SelectedItem, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="80"/>
+                                <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Prix" Binding="{Binding Price, StringFormat={}{0:C2}}" Width="90"/>
+                                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="70"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Border>
+
+                <!-- Séparateur -->
+                <Grid Grid.Column="1">
+                    <Rectangle Fill="{DynamicResource Primaire}" Width="2" HorizontalAlignment="Center" RadiusX="1" RadiusY="1" Opacity="0.15"/>
+                </Grid>
+
+                <!-- Produits sélectionnés -->
+                <Border Grid.Column="2" CornerRadius="8" Padding="6" Background="{DynamicResource FondPrincipal}" BorderBrush="{DynamicResource Primaire}" BorderThickness="1">
+                    <!-- DockPanel corrigé : 
+                    1. En-tête docké en haut.
+                    2. Barre total dockée en bas.
+                    3. DataGrid occupe l'espace restant (LastChildFill=True).
+                    4. Suppression des StackPanel inutiles autour du DataGrid.
+                    -->
+                    <DockPanel LastChildFill="True">
+                        <!-- En-tête -->
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="2,0,0,4">
+                            <TextBlock Text="Sélection"
+                                       FontWeight="SemiBold"
+                                       FontSize="14"
+                                       Foreground="{DynamicResource Primaire}"
+                                       VerticalAlignment="Center"/>
+                            <Button Content="{materialDesign:PackIcon Kind=DeleteSweep}"
+                                    Width="32"
+                                    Height="24"
+                                    Margin="8,0,0,0"
+                                    ToolTip="Vider"
+                                    Click="ClearSelectedProducts_Click"
+                                    Style="{StaticResource {x:Type Button}}"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="{DynamicResource Primaire}"/>
+                        </StackPanel>
+
+                        <!-- Barre Total en bas -->
+                        <Border DockPanel.Dock="Bottom"
+                                Padding="0,4,0,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Total :"
+                                           Grid.Column="1"
+                                           FontWeight="SemiBold"
+                                           FontSize="14"
+                                           Foreground="{DynamicResource Primaire}"
+                                           Margin="0,0,8,0"
+                                           VerticalAlignment="Center"/>
+                                <!-- Lier la valeur réelle du total (ex: TotalAmount ou SelectedProductsTotal) -->
+                                <TextBlock Text="{Binding SelectedProductsTotal, StringFormat={}{0:C2}}"
+                                           Grid.Column="2"
+                                           FontWeight="SemiBold"
+                                           FontSize="14"
+                                           Foreground="{DynamicResource Primaire}"
+                                           VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- DataGrid principal -->
+                        <DataGrid x:Name="SelectedProductsDataGrid"
+                                  ItemsSource="{Binding SelectedProducts}"
+                                  SelectedItem="{Binding SelectedSelectedProduct, Mode=TwoWay}"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  IsReadOnly="False"
+                                  HeadersVisibility="Column"
+                                  GridLinesVisibility="None"
+                                  RowHeight="32"
+                                  SelectionMode="Single"
+                                  Margin="0"
+                                  MouseDoubleClick="SelectedProductsDataGrid_MouseDoubleClick"
+                                  KeyDown="SelectedProductsDataGrid_KeyDown">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Retirer"
+                                              Click="RemoveSelectedProductMenuItem_Click"
+                                              IsEnabled="{Binding PlacementTarget.SelectedItem, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
+                                    <Separator/>
+                                    <MenuItem Header="Vider"
+                                              Click="ClearSelectedProducts_Click"
+                                              IsEnabled="False"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="70" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Qté" Binding="{Binding Quantity}" Width="55"/>
+                                <DataGridTextColumn Header="Prix U." Binding="{Binding Price, StringFormat={}{0:C2}}" Width="85" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, StringFormat={}{0:C2}}" Width="90" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
