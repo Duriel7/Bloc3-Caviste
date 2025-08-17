@@ -173,7 +173,7 @@ namespace Bloc3_Caviste.Data
             client.Add(new [ClientData] { });
         }
         //Add and save a new supplier in the list
-        public void AddClientToList(ObservableCollection<SupplierData> supplier)
+        public void AddSupplierToList(ObservableCollection<SupplierData> supplier)
         {
             supplier.Add(new [SupplierData] { });
         }
@@ -183,7 +183,7 @@ namespace Bloc3_Caviste.Data
             receipt.Add(new [ReceiptData] { });
         }
         //Add and save a new receipt line to the receipt => will be called after passing each item
-        public void AddReceiptToList(ObservableCollection<ReceiptLineData> receiptLine)
+        public void AddReceiptLineToReceipt(ObservableCollection<ReceiptLineData> receiptLine)
         {
             receiptLine.Add(new [ReceiptLineData] { });
         }
@@ -191,9 +191,21 @@ namespace Bloc3_Caviste.Data
                             //All the update functions are below => needed to update individual items
 
         //Update a wine type data
+        public void UpdateWineFromList(ObservableCollection<WineData> wine)
+        {
+            //code TBA
+        }
 
         //Update a client data
+        public void UpdateClientFromList(ObservableCollection<ClientData> client)
+        {
+            //code TBA
+        }
 
         //Update a supplier data
+        public void UpdateSupplierFromList(ObservableCollection<SupplierData> supplier)
+        {
+            //code TBA
+        }
     }
 }
