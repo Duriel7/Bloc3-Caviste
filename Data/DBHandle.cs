@@ -31,7 +31,7 @@ namespace Bloc3_Caviste.Data
             modelBuilder.Entity<WineData>().Property(w => w.StocksArriving);
             modelBuilder.Entity<WineData>().Property(w => w.DateOrder);
             modelBuilder.Entity<WineData>().Property(w => w.DateRestock);
-            modelBuilder.Entity<WineData>().HasOne(w => w.Supplier).WithMany(s => s.WineData).HasForeignKey(w => w.Id_Supplier).IsRequired();
+            modelBuilder.Entity<WineData>().HasOne(w => w.SupplierData).WithMany(s => s.WineData).HasForeignKey(w => w.Id_Supplier).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.PricePublic).IsRequired();
             modelBuilder.Entity<WineData>().Property(w => w.PriceSupplier).IsRequired();
 
@@ -54,33 +54,69 @@ namespace Bloc3_Caviste.Data
 
             //Model for receipt data
             modelBuilder.Entity<ReceiptData>().HasKey(r => r.Id_Receipt);
+            modelBuilder.Entity<ReceiptData>().HasOne(r => r.ClientData).WithMany(c => c.ReceiptData).HasForeignKey(r => r.Id_Client).IsRequired();
+            modelBuilder.Entity<ReceiptData>().Property(r => r.DateSold).IsRequired();
+            modelBuilder.Entity<ReceiptData>().Property(r => r.PriceTotal).IsRequired();
+            modelBuilder.Entity<ReceiptData>().Property(r => r.Discount);        //booléen pour décider si oui ou non pas la fonction externe
+            modelBuilder.Entity<ReceiptData>().Property(r => r.PriceDiscounted); //faire le calcul à part et inclure le résultat ici
 
             //Model for receipt line data
             modelBuilder.Entity<ReceiptLineData>().HasKey(l => l.Id_ReceiptLine);
+            modelBuilder.Entity<ReceiptLineData>().HasOne(l => l.ReceiptData).WithMany(r => r.ReceiptLineData).HasForeignKey(l => l.Id_Receipt).IsRequired();
+            modelBuilder.Entity<ReceiptLineData>().HasOne(l => l.WineData).WithMany(w => w.ReceiptLineData).HasForeignKey(l => l.Id_Wine).IsRequired();
+            modelBuilder.Entity<ReceiptLineData>().Property(l => l.Quantity).IsRequired();
+            modelBuilder.Entity<ReceiptLineData>().Property(l => l.PricePerUnit).IsRequired();
 
             //Builds database model
             base.OnModelCreating(modelBuilder);
         }
 
-        //Get all stored wine
-        public ObservableCollection<WineData> GetWineStocks()
+                            //All the get all functions are below
+
+        //Get all stored wine stocks
+        public ObservableCollection<WineData> GetAllWineStocks()
         {
             using var context = new DBHandle();
-            var stocks = context.WineDataSets.OrderBy(t => t.Id).ToList();
-            return new ObservableCollection<WineData>(stocks);
+            var wineStocks = context.WineDataSets.OrderBy(w => w.Id_Wine).ToList();
+            return new ObservableCollection<WineData>(wineStocks);
         }
+        //Get all stored clients
+        public ObservableCollection<WineData> GetAllClients()
+        {
+            using var context = new DBHandle();
+            var clients = context.ClientDataSets.OrderBy(c => c.Id_Client).ToList();
+            return new ObservableCollection<WineData>(clients);
+        }
+        //Get all stroed suppliers
+        public ObservableCollection<SupplierData> GetAllSuppliers()
+        {
+            using var context = new DBHandle();
+            var suppliers = context.SupplierDataSets.OrderBy(s => s.Id_Supplier).ToList();
+            return new ObservableCollection<SupplierData>(suppliers);
+        }
+        //Get all stored receipts
+        public ObservableCollection<ReceiptData> GetAllReceipts()
+        {
+            using var context = new DBHandle();
+            var receipts = context.ReceiptDataSets.OrderBy(r => r.Id_Receipt).ToList();
+            return new ObservableCollection<ReceiptData>(receipts);
+        }
+
+                            //All the save all functions are below
 
         //Save all wine to database to update the stored list
-        public void SaveAllWine(ObservableCollection<WineData> stocks)
+        public void SaveAllWineInStock(ObservableCollection<WineData> wineStocks)
         {
             using var context = new DBHandle();
 
         }
 
-        //Add a new task in the list
-        public void AddWine(ObservableCollection<WineData> stocks)
+                            //All the add + save functions are below
+
+        //Add and save a new wine in the list
+        public void AddWineToStock(ObservableCollection<WineData> wine)
         {
-            stocks.Add(new [WineStocks] { });
+            wine.Add(new [WineStocks] { });
         }
     }
 }
