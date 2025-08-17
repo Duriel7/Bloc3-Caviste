@@ -56,6 +56,7 @@ namespace Bloc3_Caviste.Data
             modelBuilder.Entity<ReceiptData>().HasKey(r => r.Id_Receipt);
 
             //Model for receipt line data
+            modelBuilder.Entity<ReceiptLineData>().HasKey(l => l.Id_ReceiptLine);
 
             //Builds database model
             base.OnModelCreating(modelBuilder);
