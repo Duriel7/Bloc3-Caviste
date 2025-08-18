@@ -72,7 +72,7 @@ namespace Bloc3_Caviste.Data
             }
         }
 
-        //All the save all functions are below => needed for when creating data from scratch
+                            //All the save all functions are below => needed for when creating data from scratch
 
         //Save all wine to thelist
         public void SaveAllWineInStock(ObservableCollection<WineData> wineStocks)
@@ -99,52 +99,94 @@ namespace Bloc3_Caviste.Data
             context.SaveChanges();
         }
 
-        //All the add + save functions are below => needed when adding items one by one
+                            //All the add + save functions are below => needed when adding items one by one
 
         //Add and save a new wine in the list
-        public void AddWineToStock(ObservableCollection<WineData> wine)
+        public void AddWineToStock(WineData wine)
         {
-            wine.Add(new[WineData] { });
+            using var context = new DBConnect();
+            context.WineDataSets.Add(wine);
+            context.SaveChanges();
         }
         //Add and save a new client in the list
-        public void AddClientToList(ObservableCollection<ClientData> client)
+        public void AddClientToList(ClientData client)
         {
-            client.Add(new[ClientData] { });
+            using var context = new DBConnect();
+            context.ClientDataSets.Add(client);
+            context.SaveChanges();
         }
         //Add and save a new supplier in the list
-        public void AddSupplierToList(ObservableCollection<SupplierData> supplier)
+        public void AddSupplierToList(SupplierData supplier)
         {
-            supplier.Add(new[SupplierData] { });
+            using var context = new DBConnect();
+            context.SupplierDataSets.Add(supplier);
+            context.SaveChanges();
         }
         //Add and save a new receipt in the list => will be called after each successful purchase
-        public void AddReceiptToList(ObservableCollection<ReceiptData> receipt)
+        public void AddReceiptToList(ReceiptData receipt)
         {
-            receipt.Add(new[ReceiptData] { });
+            using var context = new DBConnect();
+            context.ReceiptDataSets.Add(receipt);
+            context.SaveChanges();
         }
         //Add and save a new receipt line to the receipt => will be called after passing each item
-        public void AddReceiptLineToReceipt(ObservableCollection<ReceiptLineData> receiptLine)
+        public void AddReceiptLineToReceipt(ReceiptLineData receiptLine)
         {
-            receiptLine.Add(new[ReceiptLineData] { });
+            using var context = new DBConnect();
+            context.ReceiptLineDataSets.Add(receiptLine);
+            context.SaveChanges();
         }
 
-        //All the update functions are below => needed to update individual items
+                            //All the update functions are below => needed to update individual items
 
         //Update a wine type data
-        public void UpdateWineFromList(ObservableCollection<WineData> wine)
+        public void UpdateWineFromList(WineData wine)
         {
-            //code TBA
+            using var context = new DBConnect();
+            context.WineDataSets.Update(wine);
+            context.SaveChanges();
         }
 
         //Update a client data
-        public void UpdateClientFromList(ObservableCollection<ClientData> client)
+        public void UpdateClientFromList(ClientData client)
         {
-            //code TBA
+            using var context = new DBConnect();
+            context.ClientDataSets.Update(client);
+            context.SaveChanges();
         }
 
         //Update a supplier data
-        public void UpdateSupplierFromList(ObservableCollection<SupplierData> supplier)
+        public void UpdateSupplierFromList(SupplierData supplier)
         {
-            //code TBA
+            using var context = new DBConnect();
+            context.SupplierDataSets.Update(supplier);
+            context.SaveChanges();
+        }
+
+                            //All the delete functions are below => needed to delete individual items
+
+        //Delete a wine type
+        public void DeleteWineFromList(WineData wine)
+        {
+            using var context = new DBConnect();
+            context.WineDataSets.Remove(wine);
+            context.SaveChanges();
+        }
+
+        //Delete a client
+        public void DeleteClientFromList(ClientData client)
+        {
+            using var context = new DBConnect();
+            context.ClientDataSets.Remove(client);
+            context.SaveChanges();
+        }
+
+        //Delete a supplier
+        public void DeleteSupplierFromList(SupplierData supplier)
+        {
+            using var context = new DBConnect();
+            context.SupplierDataSets.Remove(supplier);
+            context.SaveChanges();
         }
     }
 }
