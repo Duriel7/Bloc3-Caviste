@@ -24,5 +24,10 @@ namespace Bloc3_Caviste.Views
         {
             InitializeComponent();
         }
+
+        private void GeneratePDF(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

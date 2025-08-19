@@ -24,5 +24,19 @@ namespace Bloc3_Caviste.Views
         {
             InitializeComponent();
         }
+
+        private void SwitchToEdit(object sender, RoutedEventArgs e)
+        {
+        }
+        private void FilterType(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void FilterRegion(object sender, RoutedEventArgs e)
+        {
+        }
+        private void FilterStock(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

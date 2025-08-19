@@ -3,12 +3,91 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Bloc3_Caviste.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Ventes">
+      Title="Ventes"
+      Background="{DynamicResource FondPrincipal}">
 
-    <Grid>
-        
+    <Grid Margin="6">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="52"/>
+                <RowDefinition Height="52"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Barre titre Fenetre Controle -->
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,5">
+                    <TextBlock Text="Ventes" Margin="0,0,0,0" VerticalAlignment="Center" FontFamily="{DynamicResource Limelight}" FontWeight="SemiBold" FontSize="30" Foreground="{DynamicResource Primaire}"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Ligne 1 : Client -->
+            <Grid Grid.Row="1">
+                <StackPanel Margin="0,6,0,0" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0" >
+                        <Button Content="Date" Style="{DynamicResource BoutonRougePassion}" Width="auto" Height="40" Margin="0,0,10,0"/>
+                        <Button Content="Client" Style="{DynamicResource BoutonRougePassion}" Width="auto" Height="40" Margin="0,0,10,0"/>
+                        <Button Content="Montant" Style="{DynamicResource BoutonRougePassion}" Width="auto" Height="40" Margin="0,0,10,0"/>
+                        <Button Content="Statut" Style="{DynamicResource BoutonRougePassion}" Width="auto" Height="40" Margin="0,0,10,0"/>
+                        <TextBox x:Name="SearchBarClient"
+                                 Style="{StaticResource SearchClientStyle}"
+                                 Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                 materialDesign:HintAssist.Hint="Rechercher"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0,16,0,0">
+                <Border Grid.Column="0" CornerRadius="8" Padding="6" Background="{DynamicResource FondPrincipal}" BorderBrush="{DynamicResource Primaire}" BorderThickness="1">
+                    <DockPanel>
+                        <DataGrid x:Name="ProductsDataGrid"
+                                  ItemsSource="{Binding Products}"
+                                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  IsReadOnly="True"
+                                  HeadersVisibility="Column"
+                                  GridLinesVisibility="None"
+                                  RowHeight="32"
+                                  SelectionMode="Single"
+                                  Margin="0">
+                            <DataGrid.Resources>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="80"/>
+                                <DataGridTextColumn Header="Nom" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Prix" Binding="{Binding Price, StringFormat={}{0:C2}}" Width="90"/>
+                                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="70"/>
+
+                                <!-- Nouvelle colonne Actions (deux boutons fin de ligne) -->
+                                <DataGridTemplateColumn Header="Actions" Width="160">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <Button Content="🔗"
+                                                        Style="{DynamicResource BoutonRougePassion}"
+                                                        Padding="8,2"
+                                                        MinWidth="60"
+                                                        Tag="{Binding}"
+                                                        Click="GeneratePDF"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
+
 </Page>
