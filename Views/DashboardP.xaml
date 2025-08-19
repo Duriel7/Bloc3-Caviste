@@ -44,6 +44,18 @@
                     </StackPanel>
                 </materialDesign:Card>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card Grid.Row="0">
+                    
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Row="1">
+                    
+                </materialDesign:Card>
+            </Grid>
         </StackPanel>
     </ScrollViewer>
 </Page>

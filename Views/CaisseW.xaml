@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bloc3_Caviste.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=netstandard"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" 
+        xmlns:sys="clr-namespace:System;assembly=netstandard"
         mc:Ignorable="d"
         Title="Caisse" Height="600" Width="900"
         WindowStartupLocation="CenterScreen"
@@ -13,15 +14,6 @@
         ResizeMode="CanResize"
         Background="Transparent">
 
-    <!--
-    PSEUDOCODE:
-    1. Ajouter une barre de recherche sous le bouton "Nouvelle Transaction".
-    2. Utiliser un Grid pour superposer une icône loupe à gauche et la zone de saisie.
-    3. TextBox avec Hint "Rechercher..." liée à une propriété SearchText (binding futur).
-    4. Style cohérent (hauteur 40, largeur ~300) + coins arrondis.
-    5. Prévoir un bouton pour effacer (optionnel) -> ajouté avec un PackIcon 'Close' à droite, visibilité liée au texte.
-    6. Triggers: quand TextBox vide -> bouton clear caché.
-    -->
 
     <Border x:Name="RootBorder"
             Background="{DynamicResource FondPrincipal}"
@@ -36,7 +28,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Barre titre -->
+            <!-- Barre titre Fenetre Controle -->
             <Grid Grid.Row="0" Background="{DynamicResource FondPrincipal}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <TextBlock Text="Caisse" Margin="12,0,0,0" VerticalAlignment="Center" FontFamily="{DynamicResource Limelight}" FontWeight="SemiBold" Foreground="{DynamicResource Primaire}"/>
                 <StackPanel Orientation="Horizontal"
@@ -213,14 +205,15 @@
                                        FontSize="14"
                                        Foreground="{DynamicResource Primaire}"
                                        VerticalAlignment="Center"/>
-                            <Button Content="{materialDesign:PackIcon Kind=DeleteSweep}"
-                                    Width="32"
+                            <Button Content="{materialDesign:PackIcon Kind=Delete}"
+                                    Width="35"
                                     Height="24"
+                                    Padding="0,0,0,0"
                                     Margin="8,0,0,0"
                                     ToolTip="Vider"
                                     Click="ClearSelectedProducts_Click"
                                     Style="{StaticResource {x:Type Button}}"
-                                    Background="Transparent"
+                                    Background="{DynamicResource Accent}"
                                     BorderThickness="0"
                                     Foreground="{DynamicResource Primaire}"/>
                         </StackPanel>
@@ -236,8 +229,8 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="Total :"
                                            Grid.Column="1"
-                                           FontWeight="SemiBold"
-                                           FontSize="14"
+                                           FontWeight="BOLD"
+                                           FontSize="18"
                                            Foreground="{DynamicResource Primaire}"
                                            Margin="0,0,8,0"
                                            VerticalAlignment="Center"/>

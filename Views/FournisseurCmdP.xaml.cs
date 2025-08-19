@@ -23,5 +23,20 @@ namespace Bloc3_Caviste.Views
         {
             InitializeComponent();
         }
+
+        private void BtnStockBas(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnNewCMD(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SwitchToFournisseur(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

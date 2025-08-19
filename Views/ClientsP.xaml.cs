@@ -24,5 +24,22 @@ namespace Bloc3_Caviste.Views
         {
             InitializeComponent();
         }
+
+
+
+        private void AjtClient(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditProductButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteProductButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

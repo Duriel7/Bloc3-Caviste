@@ -44,6 +44,8 @@ namespace Bloc3_Caviste.Views
                 WindowState = WindowState.Maximized;
         }
 
+        // Gestion de la caisse tableaux
+
         private void BtnClearSearch_Click(object sender, RoutedEventArgs e)
         {
             _vm.SearchKeyword = string.Empty;
