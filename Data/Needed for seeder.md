@@ -12,8 +12,10 @@ if (!context.WineDataSets.Any())
     context.SaveChanges();
 }
 
+=> le if permet d'éviter d'écraser la base une fois qu'elle a été seed et mise à jour avec des données de test
+
 Notes :
 
 On peut faire un DateTime(date).Now pour mettre une commande à la date du jour
 On peut faire un DateTime(date).Now.AddDays(X) pour ajouter des jours avant l'arrivée de la commande dans la colonne
-=> permet de faire les calcul en attrapant la bonne valeur avec la fonction d'update des données
+=> permet de faire les calculs en attrapant la bonne valeur avec la fonction d'update des données
