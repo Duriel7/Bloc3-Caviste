@@ -25,73 +25,50 @@ namespace Bloc3_Caviste.Views
 
         public DashboardViewModel()
         {
-            // Séries pour le graphique en barres
+            // Graphique en barres simple
             Series = new ISeries[]
             {
                 new ColumnSeries<double>
                 {
-                    Name = "Ventes par catégorie",
+                    Name = "Ventes",
                     Values = new double[] { 15, 25, 18, 30, 12 },
-                    Fill = new SolidColorPaint(new SKColor(237, 212, 166)), // Couleur Accent de ton thème
-                    Stroke = new SolidColorPaint(new SKColor(61, 29, 28)) { StrokeThickness = 1.5f }, // Couleur Primaire
-                    DataLabelsPosition = LiveChartsCore.Measure.DataLabelsPosition.Top,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12
+                    Fill = new SolidColorPaint(new SKColor(237, 212, 166)),
+                    Stroke = new SolidColorPaint(new SKColor(61, 29, 28)) { StrokeThickness = 1.5f }
                 }
             };
 
-            // Séries pour le graphique en secteurs (PieChart) avec OutLabels
+            // Graphique en secteurs simple
             PieSeries = new ISeries[]
             {
                 new PieSeries<double>
                 {
                     Name = "Rouge",
                     Values = new double[] { 30 },
-                    Fill = new SolidColorPaint(new SKColor(139, 69, 19)), // Couleur rouge-brun
-                    OuterRadiusOffset = 20,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12,
-                    DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue}%"
+                    Fill = new SolidColorPaint(new SKColor(139, 69, 19))
                 },
                 new PieSeries<double>
                 {
-                    Name = "Blanc",
+                    Name = "Blanc", 
                     Values = new double[] { 25 },
-                    Fill = new SolidColorPaint(new SKColor(255, 250, 205)), // Couleur blanc cassé
-                    OuterRadiusOffset = 20,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12,
-                    DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue}%"
+                    Fill = new SolidColorPaint(new SKColor(255, 250, 205))
                 },
                 new PieSeries<double>
                 {
                     Name = "Rosé",
                     Values = new double[] { 18 },
-                    Fill = new SolidColorPaint(new SKColor(255, 182, 193)), // Couleur rosé
-                    OuterRadiusOffset = 20,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12,
-                    DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue}%"
+                    Fill = new SolidColorPaint(new SKColor(255, 182, 193))
                 },
                 new PieSeries<double>
                 {
                     Name = "Champagne",
                     Values = new double[] { 15 },
-                    Fill = new SolidColorPaint(new SKColor(255, 215, 0)), // Couleur dorée
-                    OuterRadiusOffset = 20,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12,
-                    DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue}%"
+                    Fill = new SolidColorPaint(new SKColor(255, 215, 0))
                 },
                 new PieSeries<double>
                 {
                     Name = "Autres",
                     Values = new double[] { 12 },
-                    Fill = new SolidColorPaint(new SKColor(237, 212, 166)), // Couleur accent du thème
-                    OuterRadiusOffset = 20,
-                    DataLabelsPaint = new SolidColorPaint(new SKColor(61, 29, 28)),
-                    DataLabelsSize = 12,
-                    DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue}%"
+                    Fill = new SolidColorPaint(new SKColor(237, 212, 166))
                 }
             };
         }
