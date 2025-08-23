@@ -98,7 +98,7 @@
                                   GridLinesVisibility="None"
                                   RowHeight="32"
                                   SelectionMode="Single"
-                                  Margin="0"
+                                  Margin="0" 
                                   Background="Transparent"
                                   Foreground="{DynamicResource Primaire}">
                         <DataGrid.Resources>
