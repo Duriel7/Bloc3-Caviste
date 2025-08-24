@@ -170,7 +170,20 @@
                 <Setter Property="Background" Value="{StaticResource AccentFonce}"/>
             </Trigger>
         </Style.Triggers>
-    </Style>    
+    </Style>
+
+    <Style x:Key="TextBoxRouge" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFilledTextBox}">
+        <Setter Property="Background" Value="{StaticResource Accent}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primaire}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="15,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/> 
+        <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="10"/>
+    </Style>
 
     <!-- Style de carte personnalisé -->
     <Style x:Key="CardDashboard" TargetType="materialDesign:Card">

@@ -42,7 +42,8 @@ namespace Bloc3_Caviste.Views
 
         private void AjtFournisseur(object sender, RoutedEventArgs e)
         {
-
+            FournisseurCreate fournisseurCreateWindow = new FournisseurCreate();
+            fournisseurCreateWindow.ShowDialog();
         }
     }
 }

@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\fournisseurcreatew.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\fournisseurcreatew.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\fournisseurcreatew.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\fournisseurcreatew.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\fournisseurcmdp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\fournisseurcmdp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\fournisseursp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\fournisseursp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\themes\\rougepassiontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:themes\\rougepassiontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\vindetailsp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\vindetailsp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\dashboardp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\dashboardp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\clientscreatew.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\clientscreatew.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\clientsp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -13,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\views\\dashboardp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:views\\dashboardp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|c:\\users\\gpe-041\\source\\repos\\bloc3-caviste\\themes\\rougepassiontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2843B72E-148E-41B4-9880-598A51293547}|Bloc3-Caviste.csproj|solutionrelative:themes\\rougepassiontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +50,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 726,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:183084636:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "DashboardP.xaml.cs",
               "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\DashboardP.xaml.cs",
               "RelativeDocumentMoniker": "Views\\DashboardP.xaml.cs",
@@ -38,18 +86,11 @@
               "RelativeToolTip": "Views\\DashboardP.xaml.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T10:16:02.361Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 1316,
-          "SelectedChildIndex": 1,
-          "Children": [
+              "WhenOpened": "2025-08-23T10:16:02.361Z"
+            },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RougePassionTheme.xaml",
               "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Themes\\RougePassionTheme.xaml",
               "RelativeDocumentMoniker": "Themes\\RougePassionTheme.xaml",
@@ -57,32 +98,155 @@
               "RelativeToolTip": "Themes\\RougePassionTheme.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-08-14T14:50:07.085Z",
-              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1316,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FournisseursP.xaml",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseursP.xaml",
+              "RelativeDocumentMoniker": "Views\\FournisseursP.xaml",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseursP.xaml",
+              "RelativeToolTip": "Views\\FournisseursP.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-24T12:22:41.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FournisseurCmdP.xaml",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCmdP.xaml",
+              "RelativeDocumentMoniker": "Views\\FournisseurCmdP.xaml",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCmdP.xaml",
+              "RelativeToolTip": "Views\\FournisseurCmdP.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-24T12:22:34.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FournisseurCreateW.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCreateW.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\FournisseurCreateW.xaml.cs",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCreateW.xaml.cs",
+              "RelativeToolTip": "Views\\FournisseurCreateW.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T11:49:08.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FournisseurCreateW.xaml",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCreateW.xaml",
+              "RelativeDocumentMoniker": "Views\\FournisseurCreateW.xaml",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\FournisseurCreateW.xaml",
+              "RelativeToolTip": "Views\\FournisseurCreateW.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-24T11:28:50.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VinDetailsP.xaml",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\VinDetailsP.xaml",
+              "RelativeDocumentMoniker": "Views\\VinDetailsP.xaml",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\VinDetailsP.xaml",
+              "RelativeToolTip": "Views\\VinDetailsP.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-23T12:28:50.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientsCreateW.xaml",
+              "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\ClientsCreateW.xaml",
+              "RelativeDocumentMoniker": "Views\\ClientsCreateW.xaml",
+              "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\ClientsCreateW.xaml",
+              "RelativeToolTip": "Views\\ClientsCreateW.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-23T12:27:47.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "DashboardP.xaml",
               "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\DashboardP.xaml",
               "RelativeDocumentMoniker": "Views\\DashboardP.xaml",
               "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\DashboardP.xaml",
               "RelativeToolTip": "Views\\DashboardP.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-19T17:26:05.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T17:26:05.656Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "ClientsP.xaml",
               "DocumentMoniker": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\ClientsP.xaml",
               "RelativeDocumentMoniker": "Views\\ClientsP.xaml",
               "ToolTip": "C:\\Users\\GPE-041\\source\\repos\\Bloc3-Caviste\\Views\\ClientsP.xaml",
               "RelativeToolTip": "Views\\ClientsP.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-23T11:17:49.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T11:17:49.419Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1021,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 974,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 194,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 100,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             }
           ]
         }

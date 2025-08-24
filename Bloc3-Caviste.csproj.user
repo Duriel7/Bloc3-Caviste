@@ -35,6 +35,9 @@
     <Compile Update="Views\VentesP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\VinDetailsP.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\VinsP.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
